@@ -32,3 +32,6 @@ Identificador de las credenciales que debemos haber creado previamente con los d
 Email del emisor.
 15.	ToMail –Opcional –Obligatorio si queremos enviar la notificación.
 Email que va a recibir la notificación.
+
+##Instalación
+Para realizar el despliegue de este script en Azure Automation os remito al blog de [David Rodiguez Hernández](http://davidjrh.intelequia.com/2015/10/rebuilding-sql-database-indexes-using.html)
