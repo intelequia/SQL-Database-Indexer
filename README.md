@@ -1,6 +1,8 @@
 # SQL-Database-Indexer
 Script en PowerShell para Azure Automation que nos permite indexar las tablas de una base de datos dependiendo del porcentaje de fragmentación, además de modificar el tier de la base de datos para que se ejecute de forma más rápida y fluida, y el envió de un log al finalizar la tarea.
 
+Para más información : http://intelequia.com/blogs/Post/3103/Automatiza-la-optimizaci%C3%B3n-de-tu-base-de-datos-con-Azure-Automation
+
 ## Parámetros
 1.	__SqlServerName__
 Nombre del servidor de la base de datos, el propio script añade la ruta completa al nombre.
