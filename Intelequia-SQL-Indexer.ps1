@@ -274,7 +274,7 @@ workflow Intelequia-Indexer
      $output =  InlineScript {
           $outputT=""
         $SQLCommandString = @"
-        EXEC('ALTER INDEX ALL ON $Using:TableName REBUILD with (ONLINE=ON)')
+        EXEC('ALTER INDEX ALL ON "$Using:TableName" REBUILD with (ONLINE=ON)')
 "@
 
         # Define the connection to the SQL Database
@@ -302,7 +302,7 @@ workflow Intelequia-Indexer
             {
                 Write-Verbose ("Building table $Using:TableName offline")
                 $SQLCommandString = @"
-                EXEC('ALTER INDEX ALL ON $Using:TableName REBUILD')
+                EXEC('ALTER INDEX ALL ON "$Using:TableName" REBUILD')
 "@              
 
                 # Define the SQL command to run. 
