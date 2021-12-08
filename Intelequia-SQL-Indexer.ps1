@@ -180,7 +180,8 @@ workflow Intelequia-Indexer
 	Write-Output "Indexing..."
     
     $TableNames = Inlinescript {
-      
+        $tmp = New-Object System.Collections.ArrayList
+	
         # Define the connection to the SQL Database
         $Conn = New-Object System.Data.SqlClient.SqlConnection("Server=tcp:$using:SqlServerName.database.windows.net,$using:SqlServerPort;Database=$using:DatabaseName;User ID=$using:SqlUsername;Password=$using:SqlPass;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;")
          
@@ -236,9 +237,12 @@ workflow Intelequia-Indexer
                 {
                     if ($Id.OBJECT_ID -eq $FragTable.object_id.ToString())
                      {
-                        # Found the table name for this table object id. Return it
-                        Write-Verbose ("Found a table to index! : " +  $Id.Item("TableName"))
-                        $Id.TableName
+                        if ($tmp.Contains($Id.TableName) -eq $false) {
+                        	# Found the table name for this table object id. Return it
+                        	Write-Verbose ("Found a table to index! : " +  $Id.Item("TableName"))
+				$kk = $tmp.Add($Id.TableName)
+                        	$Id.TableName
+			}
                     }
                 }
             }
